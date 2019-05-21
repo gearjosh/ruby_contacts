@@ -1,0 +1,11 @@
+<h4>Your Contacts</h4>
+<hr>
+<ul>
+<% @contacts.each do |contact| %>
+  <li>
+  <%= "#{contact.first_name} #{contact.last_name}, a #{contact.job_title || 'person'} who works at #{contact.company || 'a job'}"%>
+  </li>
+<% end %>
+</ul>
+<hr>
+<a href="/add">Add a contact to this!</a>
