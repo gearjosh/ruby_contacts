@@ -41,4 +41,8 @@ class Contact
   def self.all
     @@contacts.values
   end
+
+  def delete
+    @@contacts.delete(self.id)
+  end
 end

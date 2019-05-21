@@ -74,4 +74,11 @@ describe 'Contact' do
       expect(Contact.all).to(eq([@contact]))
     end
   end
+
+  describe 'delete' do
+    it "will delete itself" do
+      @contact.delete
+      expect(Contact.all).to(eq([]))
+    end
+  end
 end
