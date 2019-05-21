@@ -74,5 +74,4 @@ describe 'Contact' do
       expect(Contact.all).to(eq([@contact]))
     end
   end
-
 end
