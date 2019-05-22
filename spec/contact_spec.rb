@@ -75,10 +75,17 @@ describe 'Contact' do
     end
   end
 
-  describe 'delete' do
+  describe '#delete' do
     it "will delete itself" do
       @contact.delete
       expect(Contact.all).to(eq([]))
+    end
+  end
+
+  describe '.find' do
+    it "will find the item in @@contacts with its own id" do
+      @contact.save
+      expect(Contact.find(@contact.id)).to(eq(@contact))
     end
   end
 end

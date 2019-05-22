@@ -5,12 +5,12 @@ class Contact
   @@contacts = {}
 
   def initialize(attributes)
-    @first_name = attributes.fetch(:first_name)
-    @last_name = attributes.fetch(:last_name)
-    @job_title = attributes.fetch(:job_title) || ''
-    @company = attributes.fetch(:company) || ''
+    @first_name = attributes.fetch(:first_name).capitalize.strip
+    @last_name = attributes.fetch(:last_name).capitalize.strip
+    @job_title = attributes.fetch(:job_title).strip || ''
+    @company = attributes.fetch(:company).strip || ''
     @id = @last_name + @first_name.chars[0..2].join
-    @addresses = [],
+    @addresses = []
     @phone_numbers = []
   end
 
@@ -44,5 +44,9 @@ class Contact
 
   def delete
     @@contacts.delete(self.id)
+  end
+
+  def self.find(id)
+    @@contacts.fetch(id)
   end
 end

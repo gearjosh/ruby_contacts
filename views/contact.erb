@@ -1,0 +1,25 @@
+<h4><%= @contact.first_name%> <%= @contact.last_name%></h4>
+<h5><%= @contact.job_title %> at <%= @contact.company %></h5>
+<hr>
+<div class="addresses">
+  <ul>
+    <% @contact.addresses.each do |address|%>
+    <li>
+      <%= address %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+<div class="phones">
+  <ul>
+    <% @contact.phone_numbers.each do |phone|%>
+    <li>
+      <%= phone %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+<form action="/contacts/<%= @contact.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button class="btn-danger" type="submit">Delete the whole contact!</button>
+</form>
